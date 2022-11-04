@@ -1,10 +1,12 @@
+import { A, B } from "ts-toolbelt";
 import { expect, it } from "vitest";
 import { Equal, Expect } from "../helpers/type-utils";
 
-export class Component {
-  private props: unknown;
 
-  constructor(props: unknown) {
+export class Component<TProps> {
+  private props: TProps;
+
+  constructor(props: TProps) {
     this.props = props;
   }
 

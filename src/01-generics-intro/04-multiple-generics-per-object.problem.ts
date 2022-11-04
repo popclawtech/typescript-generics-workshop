@@ -1,7 +1,8 @@
+import { A, T } from "ts-toolbelt";
 import { expect, it } from "vitest";
 import { Equal, Expect } from "../helpers/type-utils";
 
-const returnBothOfWhatIPassIn = (params: { a: unknown; b: unknown }) => {};
+const returnBothOfWhatIPassIn =<T,B>(params: { a: T; b: B }) => { return {first:params.a, second:params.b}};
 
 it("Should return an object where a -> first and b -> second", () => {
   const result = returnBothOfWhatIPassIn({
